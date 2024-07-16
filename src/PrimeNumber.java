@@ -3,17 +3,28 @@ import java.util.List;
 
 public abstract class PrimeNumber {
 
-    public static List<Integer> primeNumbers(int upperLimit) {
-        if (!(upperLimit > 1)) {
+    public static List<Integer> linearPrimeNumbers(int upperLimit) {
+        if (upperLimit < 2) {
             throw new IllegalArgumentException("O numero fornecido deve ser maior do que 1");
         }
         List<Integer> primeNums = new ArrayList<Integer>();
-        int curr = 1;
+        int curr = 2;
         while (curr != upperLimit) {
             if (isPrime(curr)) {
                 primeNums.add(curr);
             }
             curr++;
+        }
+        return primeNums;
+    }
+
+    public static List<Integer> recursivePrimeNumbers(int upperLimit) {
+        List<Integer> primeNums = new ArrayList<Integer>();
+        if (upperLimit >= 2) {
+            primeNums.addAll(recursivePrimeNumbers(upperLimit - 1));
+            if (isPrime(upperLimit)) {
+                primeNums.add(upperLimit);
+            }
         }
         return primeNums;
     }

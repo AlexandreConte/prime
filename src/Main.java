@@ -11,8 +11,10 @@ public class Main {
         int upperLimit;
         try {
             upperLimit = sc.nextInt();
-            List<Integer> numbers = PrimeNumber.primeNumbers(upperLimit);
-            System.out.println(numbers);
+            List<Integer> numbersWithLinear = PrimeNumber.linearPrimeNumbers(upperLimit);
+            System.out.println("Algoritmo Linear: " + numbersWithLinear);
+            List<Integer> numbersWithRecursive = PrimeNumber.recursivePrimeNumbers(upperLimit);
+            System.out.println("Algoritmo Recursivo: " + numbersWithRecursive);
         } catch (InputMismatchException exception) {
             System.out.println("Digite um numero inteiro!");
         } catch (IllegalArgumentException exception) {
